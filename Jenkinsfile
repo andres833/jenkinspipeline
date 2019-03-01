@@ -15,7 +15,7 @@ pipeline {
     }
         stage ('Deploy to Staging'){
             steps {
-                build job: 'Deploy-to-staging'
+                build job: 'deploy-to-staging-PAC'
             }
         }
 
@@ -25,7 +25,7 @@ pipeline {
                     input message:'Approve PRODUCTION Deployment?'
                 }
 
-                build job: 'Deploy-to-Produc'
+                build job: 'deploy-to-Prod-PAC'
             }
             post {
                 success {
