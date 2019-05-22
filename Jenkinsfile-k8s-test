@@ -18,10 +18,13 @@ volumes: [
     }
     stage('Run kubectl') {
       container('kubectl') {
+        withCredentials([[$class: 'UsernamePasswordMultiBinding',
+        credentialsId: 'K8S_CLUSTER_ADMIN']]){
         sh """
 	kubectl get pods
 	"""
       }
     }
   }
+}
 }
