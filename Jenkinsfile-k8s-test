@@ -19,7 +19,7 @@ volumes: [
     stage('Run kubectl') {
       container('kubectl') {
         sh """
-	kubectl get pods --all-namespaces
+	kubectl get pods --user=admin --user=kubelet --all-namespaces
 	"""
       }
     }
