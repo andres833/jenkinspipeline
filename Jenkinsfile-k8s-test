@@ -18,7 +18,6 @@ volumes: [
     }
     stage('Run kubectl') {
       container('kubectl') {
-	withKubeConfig([credentialsId: 'K8S_CLUSTER_ADMIN', serverUrl: 'https://kubernetes.default', namespace: 'default'])
         sh """
 	kubectl get pods --user=admin --user=kubelet --all-namespaces
 	"""
